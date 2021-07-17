@@ -11,8 +11,6 @@ enum Page {
     case page2
     case page3
     case page4
-    case page5
-    case page6
 }
 class ViewRouter: ObservableObject {
     @Published var currentPage: Page = .page1
@@ -21,3 +19,9 @@ class ViewRouter: ObservableObject {
 class Total: ObservableObject {
     @Published var total: Int = 0
 }
+var pizzaTotal = 0
+var breadloafTotal = 0
+var pieTotal = 0
+var pumpkinTotal = 0
+var corncobTotal = 0
+var potatosackTotal = 0

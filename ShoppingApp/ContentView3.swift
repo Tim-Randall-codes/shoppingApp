@@ -9,8 +9,41 @@ import SwiftUI
 
 struct ContentView3: View {
     @StateObject var viewRouter: ViewRouter
+    @State var pumpkinQuantity = ""
+    @State var pumpkinQuantityNum = 0
+    @State var corncobQuantity = ""
+    @State var corncobQuantityNum = 0
+    @State var potatosackQuantity = ""
+    @State var potatosackQuantityNum = 0
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            Text("Fruit and Vegetable Dept")
+                .padding()
+            Spacer()
+            HStack{
+                Text("pumpkin $7")
+                TextField("quantity", text: $pumpkinQuantity)
+            }
+            HStack{
+                Text("corncob $2")
+                TextField("quantity", text: $corncobQuantity)
+            }
+            HStack{
+                Text("potato sack $10")
+                TextField("quantity", text: $potatosackQuantity)
+            }
+            Spacer()
+            Button("Checkout", action:{
+                pumpkinQuantityNum = Int(pumpkinQuantity) ?? 0
+                pumpkinTotal = 7 * pumpkinQuantityNum
+                corncobQuantityNum = Int(corncobQuantity) ?? 0
+                corncobTotal = 2 * corncobQuantityNum
+                potatosackQuantityNum = Int(potatosackQuantity) ?? 0
+                potatosackTotal = 10 * potatosackQuantityNum
+                viewRouter.currentPage = .page4
+            })
+        }
+        .background(Color.yellow.edgesIgnoringSafeArea(.all))
     }
 }
 
