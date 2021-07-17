@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct ShoppingAppApp: App {
+    @StateObject var viewRouter = ViewRouter()
+    @StateObject var toothpasteTotal = Total()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MotherView(viewRouter: viewRouter, toothpasteTotal: toothpasteTotal)
         }
     }
 }
